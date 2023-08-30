@@ -8,6 +8,24 @@
 
 //Question 2
 
+function solveQuadratic(a=0,b=0,c=0) {
+  let x1 = (-b + Math.sqrt(b*b - 4* a* c ))/2*a;
+  let x2 = (-b - Math.sqrt(b*b - 4* a* c ))/2*a;
+  if (x1 === x2){
+    return x1 ;
+  }else{
+    return (`${x1}, ${x2}`)
+  }
+  
+  
+}
+console.log(solveQuadratic()) 
+console.log(solveQuadratic(1, 4, 4)) 
+console.log(solveQuadratic(1, -1, -2)) 
+console.log(solveQuadratic(1, 7, 12)) 
+console.log(solveQuadratic(1, 0, -4)) 
+console.log(solveQuadratic(1, -1, 0)) 
+
 //Question 3
 function printArray(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -132,5 +150,36 @@ sum(5,3,8,7,11,28);
 sum(1,2,3,4,5);
 
 //Question 15
+function randomUserIp() {
+  let ip = (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255));
+console.log(ip)
+}
+randomUserIp();
 
 //Question 16
+function randomMacAddress() {
+  let macAddress = "";
+  let macDigits = "0123456789ABCDEF"; 
+  for (let i = 0; i < 6; i++) {
+    macAddress += macDigits.charAt(Math.floor(Math.random() * 16));
+    macAddress += macDigits.charAt(Math.floor(Math.random() * 16));
+    if(i != 5){
+      macAddress += ":"
+    }    
+  } 
+  return macAddress;
+}
+
+console.log(randomMacAddress());
+
+//Question 17
+function randomHexaNumberGenerator(length = 6) {
+  return "#" + Math.random().toString(16).substring(2, length+2);
+}
+console.log(randomHexaNumberGenerator()); 
+
+//Question 18
+function userIdGenerator(length = 7) {
+  return Math.random().toString(36).toUpperCase().substring(2, length+2);
+}
+console.log(userIdGenerator());
