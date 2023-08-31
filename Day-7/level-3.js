@@ -1,26 +1,21 @@
-/* 
 
+const prompt = require("prompt-sync")();
 
+//Question 1
 
-*/
-
-// const prompt = require("prompt-sync")();
-
-// //Question 1
-
-// function userIdGeneratedByUser() {
-//   let length = +prompt('enter no of characters: ');
-//   let numOfId = +prompt('enter no of id to be generated: ');
-// for (let i = 0; i < numOfId; i++) {
-//   if(length <= 10){
-//     console.log(Math.random().toString(36).substring(2, length+2));
-//   }else{
-//     console.log(Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2, length-9));
-//   }
+function userIdGeneratedByUser() {
+  let length = +prompt('enter no of characters: ');
+  let numOfId = +prompt('enter no of id to be generated: ');
+for (let i = 0; i < numOfId; i++) {
+  if(length <= 10){
+    console.log(Math.random().toString(36).substring(2, length+2));
+  }else{
+    console.log(Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2, length-9));
+  }
   
-// }
-// }
-// userIdGeneratedByUser();
+}
+}
+userIdGeneratedByUser();
 
 //Question 2
 function rgbColorGenerator(){
@@ -201,3 +196,99 @@ function average(arr){
 }
 console.log(average([5,1,2,true,4,5,7,4,'book']));
 console.log(average([true,'abiola','woman']));
+
+//Question 14
+function modifyArray(arr){
+if (arr.length < 5){
+  return 'item not found'
+}else{
+  arr[4] = arr[4].toUpperCase();
+}
+return arr;
+}
+console.log(modifyArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']));
+console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon','Microsoft',  'IBM']));
+console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon']));
+
+//Question 15
+
+//Question 16
+function uniqueArray(arr) {
+  let uniqueArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if(uniqueArray.includes(arr[i])){
+      return 'Not a Unique array'
+    }
+    uniqueArray.push(arr[i])
+        
+  }
+  return 'All items in the array are unique';
+}
+console.log(uniqueArray([2,4,6,8,7,10]));
+console.log(uniqueArray(['Avocado', 'Tomato', 'Potato','Mango', 'Tomato','Carrot']));
+
+//Question 17
+function checkDataType(arr){
+let typeArray = [];
+for (let i = 0; i < arr.length; i++) {
+  if(typeArray.includes(typeof(arr[i]))){
+    continue;
+  }
+  typeArray.push(typeof(arr[i]))
+}
+
+if(typeArray.length > 1){
+  return 'all the items of the array are not the same data type.'
+}
+return 'all the items of the array are the same data type.'
+}
+console.log(checkDataType([5,1,2,true,4,5,7,4,'book']));
+console.log(checkDataType([2,4,6,8,7,10]));
+
+//Question 18
+
+//Question 19
+function sevenRandomNumbers() {
+  let arr =[];
+  for (let i = 0; i < 14; i++) {
+    let randNum = Math.floor(Math.random()*10)
+    if(arr.includes(randNum)){
+      continue;
+    }if(arr.length === 7){
+      break;
+    }
+    arr.push(randNum)
+    
+  }
+  console.log(arr);
+}
+sevenRandomNumbers()
+
+//Question 20
+//to reverse each country in the array
+function reverseArray(arr){
+  let reversedArr = []
+for (let i = 0; i < arr.length; i++) {
+  let element = arr[i];
+  element = element.split('');
+  element = element.reverse();
+  element = element.join('')
+ reversedArr.push(element);
+   
+}
+return reversedArr;
+}
+const countries = ["Albania","Bolivia","Canada","Denmark",
+  "Ethiopia","Finland","Germany","Hungary","Ireland",
+  "Japan","Kenya"]
+  console.log(reverseArray(countries));
+
+  //to reverse the array as a whole,
+  function reversedArray(arr) {
+    arr = arr.join()
+   arr = arr.split(',');
+    arr = arr.reverse();
+    
+    return arr;
+  }
+  console.log(reversedArray(countries));
