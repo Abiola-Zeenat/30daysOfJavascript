@@ -71,12 +71,9 @@ for (const country of countries) {
 console.log(arrInfo);
 
 //Question 7
-const landCountries = [];
-for (const country of countries) {
-  if (country.includes("land")) {
-    landCountries.push(country);
-  }
-}
+const landCountries  = countries.filter((country) =>
+country.includes('land')
+)
 if (landCountries.length == 0) {
   console.log("All these countries are without land");
 } else {

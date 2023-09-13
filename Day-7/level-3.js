@@ -1,21 +1,21 @@
 
-const prompt = require("prompt-sync")();
+// const prompt = require("prompt-sync")();
 
-//Question 1
+// //Question 1
 
-function userIdGeneratedByUser() {
-  let length = +prompt('enter no of characters: ');
-  let numOfId = +prompt('enter no of id to be generated: ');
-for (let i = 0; i < numOfId; i++) {
-  if(length <= 10){
-    console.log(Math.random().toString(36).substring(2, length+2));
-  }else{
-    console.log(Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2, length-9));
-  }
+// function userIdGeneratedByUser() {
+//   let length = +prompt('enter no of characters: ');
+//   let numOfId = +prompt('enter no of id to be generated: ');
+// for (let i = 0; i < numOfId; i++) {
+//   if(length <= 10){
+//     console.log(Math.random().toString(36).substring(2, length+2));
+//   }else{
+//     console.log(Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2, length-9));
+//   }
   
-}
-}
-userIdGeneratedByUser();
+// }
+// }
+// userIdGeneratedByUser();
 
 //Question 2
 function rgbColorGenerator(){
@@ -63,11 +63,24 @@ function arrayOfRgbColors(params) {
  console.log(arrayOfRgbColors()) ;
 
  //Question 5
- function convertHexaToRgb(hex) {
-  
-}
+function convertHexaToRgb(hex) {
 
-console.log(convertHexaToRgb("#0033ff"));
+  // This function takes in the hex value
+  // to get the code for red, we use slice to get the first 2 elements (00),
+  // then parseInt to convert the element 
+  // we sliced to a number in base 16  
+  // (ParseInt accepts 2 arguments (num, base)). 
+  // Just like the reverse of .toString(16)
+
+  const red = parseInt(hex.slice(1,3), 16)
+  const green = parseInt(hex.slice(3,5), 16)
+  const blue = parseInt(hex.slice(5,7), 16)
+
+  return(`rgb(${red}, ${green}, ${blue})`)
+}
+console.log(convertHexaToRgb("#0033ff")); 
+
+
 
 //Question 6
 function componentToHexa(c) {
@@ -78,7 +91,7 @@ function componentToHexa(c) {
 function convertRgbToHexa(r, g, b) {
   return "#" + componentToHexa(r) + componentToHexa(g) + componentToHexa(b);
 }
-console.log(convertRgbToHexa(100,55,125));
+console.log(convertRgbToHexa(0,51,255));
 
 //Question 7
 function generateColors(type, n){

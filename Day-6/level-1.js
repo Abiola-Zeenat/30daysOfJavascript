@@ -1,12 +1,4 @@
-/* 
-Iterate 0 to 10 using for loop, do the same using while and do while loop
 
-Iterate 10 to 0 using for loop, do the same using while and do while loop
-
-Iterate 0 to n using for loop
-
-
-*/
 
 //Question 1
 for (let i = 0; i <= 10; i++) {
