@@ -30,11 +30,12 @@ console.log(countries);
 //Question 2
 
 const mostSpokenLanguages = (arr, n) => {
+  //to extract lang from the languages property for each country object
   let lang = [];
      arr.forEach(element => {
        lang.push(element.languages)
      });
-
+// to combine all language arrays into one single array
   let newlang = [];
   lang.forEach(l => {
     for (let i = 0; i < l.length; i++) {
@@ -43,7 +44,9 @@ const mostSpokenLanguages = (arr, n) => {
     }
 
   })
-   newlang.sort()
+   newlang.sort() //to arrange the languages in alphabetical order
+
+   //to get each unique language and the no of times it occurs in the array
    let newArr =[]
    let newSortedArr = []
    for (let i = 0; i < newlang.length; i++) {
@@ -54,15 +57,28 @@ const mostSpokenLanguages = (arr, n) => {
       continue;
     } else {
       newArr.push(element);
-       newSortedArr.push(`{language: ${element}}`, noOfOccurence)
+      let obj = {language :element , count : noOfOccurence }
+       newSortedArr.push(obj)
     }
     
    }
-   
-  console.log(newSortedArr);
+   newSortedArr.sort((a,b) => {
+    if (b.count < a.count) return -1
+  if (b.count > a.count) return 1
+  return 0
+   })
+ 
+   //to get the ten most spoken languages
+  const tenMostSpokenLanguages = []
+for (let i = 0; i < n; i++) {
+  tenMostSpokenLanguages.push(newSortedArr[i])
+  
 }
-//To be continued ....
-// mostSpokenLanguages(countries, 1)
+return(tenMostSpokenLanguages);
+
+}
+
+console.log(mostSpokenLanguages(countries, 10));
 
 
 //Question 3
