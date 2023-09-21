@@ -1,5 +1,4 @@
 
-
 import countries from "./countries_data.js";
 
 //Question 1
